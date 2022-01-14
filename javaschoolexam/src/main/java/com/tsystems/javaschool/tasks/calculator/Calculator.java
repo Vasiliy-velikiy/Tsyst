@@ -7,8 +7,6 @@ package com.tsystems.javaschool.tasks.calculator;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 public class Calculator {
 
     /**
@@ -87,24 +85,24 @@ public class Calculator {
             this.lexemes = lexemes;
         }
 
-        /**@return  get current lexeme and shifts on next  position*/
+        /*return  get current lexeme and shifts on next  position*/
         public Lexeme next(){
             return lexemes.get(pos++);
         }
-        /**mark of position shifts back*/
+        /*mark of position shifts back*/
         public  void back(){
             pos--;
         }
-        /**@return current position*/
+        /* return current position*/
         public int getPos(){
             return pos;
         }
     }
 
 
-    /**@param  current string for computing
-     * @return array of lexeme
-     * @throws exeption if current lexeme wrong*/
+    /*param  expText string for computing
+     * return array of lexeme
+     * throws  if current lexeme wrong*/
     public static List<Lexeme>lexAnalyze(String expText) throws RuntimeException {
         ArrayList<Lexeme> lexemes=new ArrayList<>();
                     //iterating elements of string and analyze chars
@@ -169,9 +167,8 @@ public class Calculator {
     //multdiv:factor (( '*' | '/' ) factor )* ;
     //factor: NUMBER | '(' expr ')' ; //factor- expresion in brackets or number
 
-    /**@param object (LexemeBuffer) were save list of lexemes
-     * @return double result*/
-    public static double expr(LexemeBuffer lexemes){
+
+    public static double expr(LexemeBuffer lexemes){ //object (LexemeBuffer) were save list of lexemes
         Lexeme lexeme=lexemes.next();
         if(lexeme.type== LexemeType.EOF){ //check on end of string
             return 0;
@@ -182,7 +179,7 @@ public class Calculator {
         }
     }
 
-    /**@param object (LexemeBuffer) were save list of lexemes
+    /* object (LexemeBuffer) were save list of lexemes
      * @return double result*/
     public static double multdiv(LexemeBuffer lexemes){  //handling multiplication or division operation
         double value=factor(lexemes);   //computing first expresion
@@ -202,8 +199,8 @@ public class Calculator {
         }
     }
 
-    /**@param object (LexemeBuffer) were save list of lexemes
-     * @return double result*/
+    /* object (LexemeBuffer) were save list of lexemes
+     *return double result*/
     public static double plusminus(LexemeBuffer lexemes){// such as multdiv method
 
         double value=multdiv(lexemes);
@@ -222,8 +219,8 @@ public class Calculator {
             }
         }
     }
-    /**@param object (LexemeBuffer) were save list of lexemes
-     * @return double result*/
+    /*param object (LexemeBuffer) were save list of lexemes
+     * return double result*/
     public static double factor(LexemeBuffer lexemes) throws RuntimeException{
         Lexeme lexeme=lexemes.next();//read next lexeme
         switch (lexeme.type) {     //check type
