@@ -4,6 +4,7 @@ package com.tsystems.javaschool.tasks.calculator;
 
 
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,11 +20,11 @@ public class Calculator {
      */
     public String evaluate(String statement) {
         // TODO: Implement the logic here
-
         List<Lexeme>  lexemes;  //list for all lexemes
         LexemeBuffer lexemeBuffer;
         double result;       // four operations of computing return double
         String resultToString;  //double must convert to string
+        StringBuffer stringBuffer; //object to round number, for example 3.333333->3.3333
 
         try {    //wrong chars from statement throws exeption. In this case in Tests  method "evaluate" must returns null
 
@@ -36,8 +37,16 @@ public class Calculator {
             if(statement=="")return null;
             if (result == Math.floor(result)) {  // for example if double result = 11.0, we must to round
                 resultToString = String.valueOf((int) result);      //in this case result=11, and we convert to string
-            } else {
+            }
+            else {
                 resultToString = String.valueOf(result);
+
+                String ex =resultToString.substring( resultToString.indexOf('.')+1);  //find how many digits after comma
+                if(ex.length()>=4){//if we have 3.333333 ,we must to round 3.3333 (4 numbers after comma)
+                    String temp1=resultToString.substring(0,  resultToString.indexOf('.')+1); //whole number
+                    String temp2=ex.substring(0,4);  //remainder
+                    resultToString=temp1+temp2;
+                }
             }
             return resultToString;
         }
