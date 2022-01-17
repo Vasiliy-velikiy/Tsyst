@@ -24,7 +24,6 @@ public class Calculator {
         LexemeBuffer lexemeBuffer;
         double result;       // four operations of computing return double
         String resultToString;  //double must convert to string
-        StringBuffer stringBuffer; //object to round number, for example 3.333333->3.3333
 
         try {    //wrong chars from statement throws exeption. In this case in Tests  method "evaluate" must returns null
 
