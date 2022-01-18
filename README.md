@@ -14,11 +14,10 @@ The exam includes 3 tasks to be done: [Calculator](/tasks/Calculator.md), [Pyram
 * Author name : Moskalev Vasiliy
 * CIRCLE CI  : [![CircleCI](https://circleci.com/gh/Vasiliy-velikiy/Tsyst/tree/circleci-project-setup.svg?style=svg)](https://circleci.com/gh/Vasiliy-velikiy/Tsyst/?branch=circleci-project-setup)
 
- 
 
-### How to start?  ###
-* Install [GIT](https://git-scm.com/) and [Maven](https://maven.apache.org)
-* [Fork](https://confluence.atlassian.com/bitbucket/forking-a-repository-221449527.html) the repository 
+How to start?
+* Install GIT and Maven
+* Fork the repository
 * You're ready to go!
 
 ### How can I submit the result?  ###
